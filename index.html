@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ace Septic Tank Cleaning and Repair Specialists — Professional septic pumping and repair services in Obetz, OH and the greater Columbus area. Family owned, licensed, bonded, and insured." />
+  <title>Ace Septic Tank Cleaning &amp; Repair Specialists | Obetz, OH</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg:      '#0A1128',
+              accent:  '#EAB308',
+              border:  '#1E3A8A',
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body:    ['"DM Sans"', 'sans-serif'],
+          },
+          keyframes: {
+            fadeUp: {
+              '0%':   { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(234,179,8,0.4)' },
+              '50%':      { boxShadow: '0 0 0 8px rgba(234,179,8,0)' },
+            },
+          },
+          animation: {
+            'fade-up':    'fadeUp 0.7s ease forwards',
+            'fade-up-d1': 'fadeUp 0.7s 0.15s ease forwards',
+            'fade-up-d2': 'fadeUp 0.7s 0.3s ease forwards',
+            'fade-up-d3': 'fadeUp 0.7s 0.45s ease forwards',
+            'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #0A1128;
+      font-family: 'DM Sans', sans-serif;
+      color: #cbd5e1;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── Typography ── */
+    .font-display { font-family: 'Playfair Display', serif; }
+
+    /* ── Hero gradient mask ── */
+    .hero-gradient-mask {
+      background: linear-gradient(
+        to right,
+        #0A1128 35%,
+        rgba(10,17,40,0.75) 52%,
+        rgba(10,17,40,0.2) 70%,
+        transparent 85%
+      );
+    }
+
+    /* ── Divider line accent ── */
+    .accent-rule {
+      width: 48px;
+      height: 3px;
+      background: #EAB308;
+      border-radius: 2px;
+    }
+
+    /* ── Nav link underline ── */
+    .nav-link {
+      position: relative;
+      color: #94a3b8;
+      transition: color 0.25s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: #EAB308;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── Mobile nav overlay ── */
+    #mobile-menu {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    #mobile-menu.hidden {
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+    }
+    #mobile-menu:not(.hidden) {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Opacity for deferred animations ── */
+    .opacity-0-start { opacity: 0; }
+  </style>
+</head>
+
+<body class="relative">
+
+  <!-- ══════════════════════════════════════
+       HEADER / NAVIGATION
+  ══════════════════════════════════════ -->
+  <header class="relative z-50 w-full border-b border-brand-border/40 bg-brand-bg/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 flex-shrink-0 group">
+        <div class="w-10 h-10 rounded-lg bg-brand-accent flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+          <!-- Icon: Ace of Spades -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Spade shape -->
+            <path d="M12 2 C12 2 4 8 4 13 C4 16.5 7 18 9.5 16.5 C8.5 18.5 7.5 19.5 6 20 L18 20 C16.5 19.5 15.5 18.5 14.5 16.5 C17 18 20 16.5 20 13 C20 8 12 2 12 2Z" fill="#0A1128"/>
+            <!-- A letter -->
+            <text x="12" y="19.5" text-anchor="middle" font-size="5.5" font-weight="900" font-family="serif" fill="#EAB308" letter-spacing="0">A</text>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-white font-semibold text-sm tracking-wide">ACE SEPTIC</span>
+          <span class="block text-brand-accent text-xs tracking-widest uppercase font-light">Tank &amp; Repair Specialists</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#services"     class="nav-link text-sm font-medium tracking-wide">Services</a>
+        <a href="#why-us"       class="nav-link text-sm font-medium tracking-wide">Why Us</a>
+        <a href="#faq"          class="nav-link text-sm font-medium tracking-wide">FAQ</a>
+        <a href="#contact"      class="nav-link text-sm font-medium tracking-wide">Contact</a>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="tel:6148373922"
+           class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-brand-bg bg-brand-accent hover:bg-yellow-400 px-5 py-2.5 rounded-lg transition-all duration-200 shadow-lg shadow-yellow-900/30 animate-pulse-glow">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.08 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          (614) 837-3922
+        </a>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" aria-label="Toggle navigation" class="md:hidden text-slate-300 hover:text-white p-2 rounded-md">
+          <svg id="icon-open"  width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="icon-close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6"  y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border/40 bg-brand-bg/95 backdrop-blur-md px-6 pb-6 pt-4">
+      <nav class="flex flex-col gap-4 mb-5">
+        <a href="#services" class="nav-link text-sm font-medium tracking-wide">Services</a>
+        <a href="#why-us"   class="nav-link text-sm font-medium tracking-wide">Why Us</a>
+        <a href="#faq"      class="nav-link text-sm font-medium tracking-wide">FAQ</a>
+        <a href="#contact"  class="nav-link text-sm font-medium tracking-wide">Contact</a>
+      </nav>
+      <a href="tel:6148373922"
+         class="flex items-center justify-center gap-2 text-sm font-semibold text-brand-bg bg-brand-accent hover:bg-yellow-400 px-5 py-3 rounded-lg transition-all w-full">
+        📞 (614) 837-3922
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════ -->
+  <section class="relative w-full min-h-[92vh] flex items-center overflow-hidden">
+
+    <!-- Background truck image (right side, full bleed) -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="./images/hero-truck.jpg"
+        alt="Ace Septic fleet truck"
+        class="w-full h-full object-cover object-right"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Left gradient mask for text readability -->
+    <div class="hero-gradient-mask absolute inset-0 z-10"></div>
+
+    <!-- Subtle bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-bg to-transparent z-10"></div>
+
+    <!-- Hero content -->
+    <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 w-full py-24 md:py-32">
+      <div class="max-w-xl lg:max-w-2xl">
+
+        <!-- Emergency badge -->
+        <div class="opacity-0-start animate-fade-up inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 text-brand-accent text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+          ⚠️ &nbsp;Same-Day Service Available — Call to Book
+        </div>
+
+        <!-- Accent rule -->
+        <div class="opacity-0-start animate-fade-up-d1 accent-rule mb-6"></div>
+
+        <!-- H1 -->
+        <h1 class="opacity-0-start animate-fade-up-d1 font-display text-white text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
+          Professional Septic<br/>Pumping &amp; Repair<br/>
+          <span class="text-brand-accent">Services in</span><br/>Obetz &amp; Columbus, OH.
+        </h1>
+
+        <!-- Subline -->
+        <p class="opacity-0-start animate-fade-up-d2 text-slate-300 text-base sm:text-lg font-light leading-relaxed mb-3 tracking-wide">
+          Family Owned. Licensed, Bonded, and Insured.
+        </p>
+
+        <!-- Trust badges -->
+        <div class="opacity-0-start animate-fade-up-d2 flex flex-wrap gap-4 text-xs text-slate-400 font-medium tracking-wide mb-10">
+          <span class="flex items-center gap-1.5"><span class="text-brand-accent">✓</span> Licensed &amp; Bonded</span>
+          <span class="flex items-center gap-1.5"><span class="text-brand-accent">✓</span> Fully Insured</span>
+          <span class="flex items-center gap-1.5"><span class="text-brand-accent">✓</span> Obetz &amp; Columbus Locals</span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="opacity-0-start animate-fade-up-d3 flex flex-col sm:flex-row gap-4">
+
+          <!-- Primary: solid accent -->
+          <a href="#contact"
+             class="inline-flex items-center justify-center gap-2 bg-brand-accent hover:bg-yellow-400 text-brand-bg font-semibold text-sm tracking-wide px-8 py-4 rounded-lg shadow-xl shadow-yellow-900/30 transition-all duration-200 hover:scale-[1.02] active:scale-100">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            Get a Free Quote
+          </a>
+
+          <!-- Secondary: ghost / border -->
+          <a href="tel:6148373922"
+             class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-brand-accent text-white hover:text-brand-accent font-semibold text-sm tracking-wide px-8 py-4 rounded-lg transition-all duration-200 backdrop-blur-sm hover:scale-[1.02] active:scale-100">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.08 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 .02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            Call Now
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SERVICES STRIP
+  ══════════════════════════════════════ -->
+  <section id="services" class="relative z-10 border-y border-brand-border/50 bg-brand-bg py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="mb-14 text-center">
+        <div class="accent-rule mx-auto mb-4"></div>
+        <h2 class="font-display text-white text-3xl sm:text-4xl font-bold mb-3">Our Services</h2>
+        <p class="text-slate-400 text-sm max-w-md mx-auto">Comprehensive septic solutions delivered with precision, care, and decades of expertise.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Service Card Template -->
+        <!-- Card 1 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">🚛</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Septic Pumping</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Thorough, efficient tank pumping to prevent costly backups and protect your property.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">🔧</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Repair &amp; Restoration</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Expert diagnosis and repair of tanks, lines, and distribution boxes — done right, the first time.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">🔍</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Inspection &amp; Maintenance</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Routine inspections and scheduled maintenance plans to extend system life and ensure compliance.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">⚠️</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Same-Day Service</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Call early and we'll do our best to get a crew out the same day. Open 7 days a week for your convenience.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">🏠</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Residential Service</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Serving homeowners across Columbus, Obetz, and surrounding communities with reliable, courteous, mess-free service.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="group bg-white/[0.03] border border-brand-border/40 rounded-2xl p-7 hover:border-brand-accent/40 hover:bg-white/[0.05] transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors duration-200">
+            <span class="text-2xl">🏢</span>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2 font-display">Commercial Service</h3>
+          <p class="text-slate-200 text-sm leading-relaxed">Scalable septic solutions for restaurants, facilities, and multi-unit properties — on your schedule.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       WHY US / TRUST SECTION
+  ══════════════════════════════════════ -->
+  <section id="why-us" class="relative z-10 py-24 bg-brand-bg">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <div class="accent-rule mb-6"></div>
+          <h2 class="font-display text-white text-3xl sm:text-4xl font-bold leading-snug mb-6">
+            Columbus Area's Most<br/>
+            <span class="text-brand-accent">Trusted</span> Septic Team
+          </h2>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            When you call Ace Septic, you're not getting a call center — you're getting a family that's built its reputation one job at a time. We treat every property like our own, and we don't leave until the work is done right.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-sm font-bold">✓</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Licensed, Bonded &amp; Insured</p>
+                <p class="text-slate-500 text-sm">Full compliance with Ohio state regulations — your property is protected.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-sm font-bold">✓</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Family-Owned Since Day One</p>
+                <p class="text-slate-500 text-sm">No franchises, no contractors — just our team, our trucks, and our word.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-sm font-bold">✓</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Transparent, Upfront Pricing</p>
+                <p class="text-slate-500 text-sm">No surprise fees. You'll know the cost before we touch anything.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 items-start">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-sm font-bold">✓</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Open 7 Days a Week</p>
+                <p class="text-slate-500 text-sm">Mon–Fri 8am–5pm · Sat 8am–Midnight · Sun 8am–4:30pm</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Stats -->
+        <div class="grid grid-cols-2 gap-5">
+          <div class="bg-white/[0.03] border border-brand-border/40 rounded-2xl p-8 flex flex-col justify-between">
+            <span class="font-display text-5xl font-black text-brand-accent">20+</span>
+            <span class="text-slate-300 text-sm mt-3 font-medium">Years Serving Central Ohio</span>
+          </div>
+          <div class="bg-white/[0.03] border border-brand-border/40 rounded-2xl p-8 flex flex-col justify-between mt-6">
+            <span class="font-display text-5xl font-black text-brand-accent">5K+</span>
+            <span class="text-slate-300 text-sm mt-3 font-medium">Jobs Completed</span>
+          </div>
+          <div class="bg-brand-accent/10 border border-brand-accent/30 rounded-2xl p-8 flex flex-col justify-between">
+            <span class="font-display text-5xl font-black text-brand-accent">7</span>
+            <span class="text-slate-300 text-sm mt-3 font-medium">Days a Week, We're Open</span>
+          </div>
+          <div class="bg-white/[0.03] border border-brand-border/40 rounded-2xl p-8 flex flex-col justify-between mt-6">
+            <span class="font-display text-5xl font-black text-brand-accent">100%</span>
+            <span class="text-slate-300 text-sm mt-3 font-medium">Licensed &amp; Insured Crew</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       REAL WORK / PHOTO SHOWCASE SECTION
+  ══════════════════════════════════════ -->
+  <section class="relative z-10 py-24 border-t border-brand-border/40 overflow-hidden">
+
+    <!-- Subtle background glow -->
+    <div class="absolute -left-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Left: Photo -->
+        <div class="relative group">
+
+          <!-- Decorative border frame -->
+          <div class="absolute -inset-3 rounded-2xl border border-brand-accent/20 pointer-events-none z-10"></div>
+          <div class="absolute -inset-6 rounded-2xl border border-brand-border/30 pointer-events-none z-10"></div>
+
+          <!-- Accent corner tag -->
+          <div class="absolute top-4 left-4 z-20 bg-brand-accent text-brand-bg text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-md shadow-lg">
+            Our Crew · On the Job
+          </div>
+
+          <!-- The photo -->
+          <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/60">
+            <img
+              src="./images/photo.jpg"
+              alt="Ace Septic technician in full PPE gear standing in front of the branded Ace Septic Tank Cleaning truck on a job site"
+              class="w-full h-full object-cover object-center aspect-[4/5] lg:aspect-auto lg:max-h-[600px] group-hover:scale-[1.02] transition-transform duration-700"
+              loading="lazy"
+            />
+            <!-- Bottom gradient overlay on photo -->
+            <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <!-- Caption bar -->
+            <div class="absolute bottom-0 left-0 right-0 px-5 pb-5 flex items-end justify-between">
+              <p class="text-white text-xs font-medium opacity-80">Obetz, OH · Active Job Site</p>
+              <div class="flex items-center gap-1.5 bg-brand-accent/90 text-brand-bg text-xs font-bold px-3 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-bg inline-block animate-pulse"></span>
+                PPE Certified
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div>
+          <div class="accent-rule mb-6"></div>
+          <h2 class="font-display text-white text-3xl sm:text-4xl font-bold leading-snug mb-5">
+            This Is Us.<br/>
+            <span class="text-brand-accent">Out There Every Day.</span>
+          </h2>
+          <p class="text-slate-400 leading-relaxed mb-6">
+            That's one of our guys, on a job in Obetz. We've been showing up like this — suited up, equipped, and ready — for years. No dispatch center, no subcontractors. When you call Ace, you get Ace.
+          </p>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            Our Juggler vacuum tankers are built for serious work — residential cleanouts, commercial grease traps, large industrial pulls. We have the equipment to handle whatever your system throws at us, and we take waste disposal seriously from start to finish.
+          </p>
+
+          <!-- Feature list -->
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xs">✓</span>
+              Branded, fully equipped vacuum tanker fleet
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xs">✓</span>
+              Proper waste disposal — fully compliant with Ohio regulations
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xs">✓</span>
+              Site left clean — no mess, no residue, no odor
+            </li>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent text-xs">✓</span>
+              Full PPE on every job — hard hat, respirator, Tyvek suit
+            </li>
+          </ul>
+
+          <a href="#contact"
+             class="inline-flex items-center gap-2 bg-brand-accent hover:bg-yellow-400 text-brand-bg font-semibold text-sm tracking-wide px-7 py-4 rounded-lg shadow-lg shadow-yellow-900/20 transition-all duration-200 hover:scale-[1.02]">
+            Schedule Your Service
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FAQ SECTION
+  ══════════════════════════════════════ -->
+  <section id="faq" class="relative z-10 py-24 border-t border-brand-border/40 bg-brand-bg">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10">
+
+      <div class="text-center mb-14">
+        <div class="accent-rule mx-auto mb-4"></div>
+        <h2 class="font-display text-white text-3xl sm:text-4xl font-bold mb-3">Common Questions</h2>
+        <p class="text-slate-400 text-sm">Quick answers to what most customers want to know.</p>
+      </div>
+
+      <div class="space-y-4" id="faq-container">
+
+        <details class="group border border-brand-border/40 rounded-xl bg-white/[0.02] overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer text-white font-medium text-sm hover:bg-white/[0.03] transition-colors select-none list-none">
+            How often should I have my septic tank pumped?
+            <span class="text-brand-accent group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+            For most households, every 3–5 years is the standard recommendation. Actual frequency depends on tank size and the number of occupants. We can assess your specific system and advise accordingly.
+          </div>
+        </details>
+
+        <details class="group border border-brand-border/40 rounded-xl bg-white/[0.02] overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer text-white font-medium text-sm hover:bg-white/[0.03] transition-colors select-none list-none">
+            What are the signs my septic tank needs service?
+            <span class="text-brand-accent group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+            Slow drains, gurgling sounds, sewage odors inside or outside, wet spots in the yard above the drain field, or sewage backup in fixtures are all warning signs. If you notice any of these, call us promptly.
+          </div>
+        </details>
+
+        <details class="group border border-brand-border/40 rounded-xl bg-white/[0.02] overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer text-white font-medium text-sm hover:bg-white/[0.03] transition-colors select-none list-none">
+            Do you offer same-day service?
+            <span class="text-brand-accent group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+            Yes. We're open 7 days a week and often accommodate same-day calls. Call <a href="tel:6148373922" class="text-brand-accent hover:underline">(614) 837-3922</a> and we'll get a team out to you as quickly as possible.
+          </div>
+        </details>
+
+        <details class="group border border-brand-border/40 rounded-xl bg-white/[0.02] overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer text-white font-medium text-sm hover:bg-white/[0.03] transition-colors select-none list-none">
+            How much does septic pumping cost?
+            <span class="text-brand-accent group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+            Pricing depends on tank size, access, and location. We provide transparent, upfront quotes before any work begins — no surprises. Contact us for a free estimate.
+          </div>
+        </details>
+
+        <details class="group border border-brand-border/40 rounded-xl bg-white/[0.02] overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer text-white font-medium text-sm hover:bg-white/[0.03] transition-colors select-none list-none">
+            Are you licensed and insured to work in Obetz and the greater Columbus area?
+            <span class="text-brand-accent group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">▾</span>
+          </summary>
+          <div class="px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+            Absolutely. Ace Septic is fully licensed, bonded, and insured in the state of Ohio. We operate in full compliance with all local and state regulations.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CONTACT / CTA SECTION
+  ══════════════════════════════════════ -->
+  <section id="contact" class="relative z-10 py-24 border-t border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: Contact info -->
+        <div>
+          <div class="accent-rule mb-6"></div>
+          <h2 class="font-display text-white text-3xl sm:text-4xl font-bold mb-4">
+            Get Your <span class="text-brand-accent">Free Quote</span>
+          </h2>
+          <p class="text-slate-400 leading-relaxed mb-10">
+            Fill out the form and we'll get back to you within the hour. Prefer to talk? Call us directly — we answer every call.
+          </p>
+
+          <div class="space-y-6">
+            <a href="tel:6148373922" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent/20 transition-colors">
+                📞
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Call Anytime</p>
+                <p class="text-white font-semibold group-hover:text-brand-accent transition-colors">(614) 837-3922</p>
+              </div>
+            </a>
+
+            <a href="https://maps.google.com/?q=4210+Groveport+Rd+Obetz+OH+43207" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent/20 transition-colors">
+                📍
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Our Location</p>
+                <p class="text-white font-semibold group-hover:text-brand-accent transition-colors">4210 Groveport Rd, Obetz, OH 43207</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent">
+                🕐
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-widest mb-0.5">Business Hours</p>
+                <p class="text-white font-semibold">Mon–Fri: 8:00 AM – 5:00 PM</p>
+                <p class="text-slate-400 text-xs mt-0.5">Sat: 8:00 AM – 12:00 AM &nbsp;·&nbsp; Sun: 8:00 AM – 4:30 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact form -->
+        <div class="bg-white/[0.03] border border-brand-border/40 rounded-2xl p-8 lg:p-10">
+          <h3 class="text-white font-semibold text-lg mb-6">Request a Free Estimate</h3>
+
+          <div class="space-y-5">
+            <!-- Name -->
+            <div>
+              <label class="block text-xs text-slate-400 uppercase tracking-widest mb-2" for="name">Full Name</label>
+              <input
+                id="name" type="text" placeholder="John Smith"
+                class="w-full bg-white/[0.07] border border-brand-border/60 rounded-lg px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-brand-accent/60 focus:bg-white/[0.06] transition-all"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label class="block text-xs text-slate-400 uppercase tracking-widest mb-2" for="phone">Phone Number</label>
+              <input
+                id="phone" type="tel" placeholder="(555) 000-0000"
+                class="w-full bg-white/[0.07] border border-brand-border/60 rounded-lg px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-brand-accent/60 focus:bg-white/[0.06] transition-all"
+              />
+            </div>
+
+            <!-- Service -->
+            <div>
+              <label class="block text-xs text-slate-400 uppercase tracking-widest mb-2" for="service">Service Needed</label>
+              <div class="relative w-full">
+  <select
+    id="service"
+    class="w-full bg-brand-bg border border-brand-border/60 rounded-lg px-4 py-3 text-slate-300 text-sm focus:outline-none focus:border-brand-accent/60 transition-all appearance-none cursor-pointer pr-10"
+  >
+    <option value="">Select a service…</option>
+    <option>Septic Pumping</option>
+    <option>Septic Repair</option>
+    <option>Inspection / Maintenance</option>
+    <option>Emergency Service</option>
+    <option>Other / Not Sure</option>
+  </select>
+  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-brand-accent">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+    </svg>
+  </div>
+</div>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="block text-xs text-slate-400 uppercase tracking-widest mb-2" for="message">Additional Details</label>
+              <textarea
+                id="message" rows="4" placeholder="Describe your situation or any urgency…"
+                class="w-full bg-white/[0.07] border border-brand-border/60 rounded-lg px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-brand-accent/60 focus:bg-white/[0.06] transition-all resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="button"
+              class="w-full bg-brand-accent hover:bg-yellow-400 text-brand-bg font-semibold text-sm tracking-wide px-8 py-4 rounded-lg shadow-lg shadow-yellow-900/20 transition-all duration-200 hover:scale-[1.01] active:scale-100"
+            >
+              Send My Request
+            </button>
+
+            <p class="text-center text-xs text-slate-600">No spam. We'll respond within 60 minutes during business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="relative z-10 border-t border-brand-border/50 bg-brand-bg py-14">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-lg bg-brand-accent flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 C12 2 4 8 4 13 C4 16.5 7 18 9.5 16.5 C8.5 18.5 7.5 19.5 6 20 L18 20 C16.5 19.5 15.5 18.5 14.5 16.5 C17 18 20 16.5 20 13 C20 8 12 2 12 2Z" fill="#0A1128"/>
+                <text x="12" y="19.5" text-anchor="middle" font-size="5.5" font-weight="900" font-family="serif" fill="#EAB308" letter-spacing="0">A</text>
+              </svg>
+            </div>
+            <span class="text-white font-semibold">Ace Septic Tank Cleaning &amp; Repair Specialists</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed max-w-xs">
+            Family-owned. Licensed, bonded, and insured. Proudly serving Obetz, Columbus, and Central Ohio since day one.
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="text-white text-xs font-semibold uppercase tracking-widest mb-5">Navigation</p>
+          <ul class="space-y-3">
+            <li><a href="#services" class="text-slate-500 hover:text-brand-accent text-sm transition-colors">Services</a></li>
+            <li><a href="#why-us"   class="text-slate-500 hover:text-brand-accent text-sm transition-colors">Why Us</a></li>
+            <li><a href="#faq"      class="text-slate-500 hover:text-brand-accent text-sm transition-colors">FAQ</a></li>
+            <li><a href="#contact"  class="text-slate-500 hover:text-brand-accent text-sm transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div>
+          <p class="text-white text-xs font-semibold uppercase tracking-widest mb-5">Contact &amp; Hours</p>
+          <a href="tel:6148373922" class="text-brand-accent text-lg font-semibold hover:text-yellow-300 transition-colors block mb-3">(614) 837-3922</a>
+          <ul class="space-y-1.5 text-xs text-slate-500">
+            <li class="flex justify-between gap-4"><span>Mon – Fri</span><span class="text-slate-400">8:00 AM – 5:00 PM</span></li>
+            <li class="flex justify-between gap-4"><span>Saturday</span><span class="text-slate-400">8:00 AM – 12:00 AM</span></li>
+            <li class="flex justify-between gap-4"><span>Sunday</span><span class="text-slate-400">8:00 AM – 4:30 PM</span></li>
+          </ul>
+          <a href="https://maps.google.com/?q=4210+Groveport+Rd+Obetz+OH+43207" target="_blank" rel="noopener"
+             class="mt-4 block text-xs text-slate-500 hover:text-brand-accent transition-colors">
+            📍 4210 Groveport Rd, Obetz, OH 43207
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="pt-8 border-t border-brand-border/30 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-slate-600 text-xs">&copy; 2026 Ace Septic Tank Cleaning and Repair Specialists. All rights reserved.</p>
+        <p class="text-slate-700 text-xs">Licensed &bull; Bonded &bull; Insured &bull; Obetz, OH 43207</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    // ── Mobile menu toggle ──
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen   = document.getElementById('icon-open');
+    const iconClose  = document.getElementById('icon-close');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // ── Active nav highlight on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              'text-brand-accent',
+              link.getAttribute('href') === '#' + entry.target.id
+            );
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
